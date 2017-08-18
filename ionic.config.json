@@ -2,5 +2,7 @@
   "name": "Template",
   "app_id": "b632f9ee",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
