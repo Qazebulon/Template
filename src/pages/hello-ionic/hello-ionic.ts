@@ -14,18 +14,18 @@ export class HelloIonicPage {
   debugMsg: string = "init value";
 
   constructor(public deploy: Deploy, public platform: Platform) {
-    this.debugMsg = "Constructor: starting point.";
+    this.debugMsg += " - Constructor: starting point.";
 //    console.log(this.debugMsg);
 
     if(this.platform.is('ios')){
-      this.debugMsg = "ios device";
+      this.debugMsg += " - ios device";
 //      console.log(this.debugMsg);
 
       this.deploy.check().then((snapshotAvailable: boolean) => {
         if (snapshotAvailable) {
           // When snapshotAvailable is true, you can apply the snapshot
 
-          this.debugMsg = "SNAPSHOT AVAIABLE!";
+          this.debugMsg += " - SNAPSHOT AVAIABLE!";
   //        console.log(this.debugMsg);
 
           /*
@@ -38,14 +38,33 @@ export class HelloIonicPage {
           */
 
         }else{
-          this.debugMsg = "No SNAPSHOT Update...";
+          this.debugMsg += " - No SNAPSHOT Update...";
         }
       });
 
     }else{
-      this.debugMsg = "Not iOS";
+      this.debugMsg += " - Not iOS";
 //      console.log(this.debugMsg);
     }
 
+  }
+
+  testMethod(){
+    this.debugMsg += " - || ";
+
+    if(this.platform.is('ios')){
+      this.debugMsg += " - ios device";
+
+      this.deploy.check().then((snapshotAvailable: boolean) => {
+        if (snapshotAvailable) {
+          // When snapshotAvailable is true, you can apply the snapshot
+          this.debugMsg += " - SNAPSHOT AVAIABLE!";
+        }else{
+          this.debugMsg += " - No SNAPSHOT Update...";
+        }
+      });
+    }else{
+      this.debugMsg += " - Not iOS";
+    }
   }
 }
