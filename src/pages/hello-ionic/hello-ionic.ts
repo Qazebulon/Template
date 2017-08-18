@@ -15,22 +15,22 @@ export class HelloIonicPage {
 
   constructor(public deploy: Deploy, public platform: Platform) {
     this.debugMsg = "Constructor: starting point.";
-    console.log(this.debugMsg);
+//    console.log(this.debugMsg);
 
     if(this.platform.is('ios')){
       this.debugMsg = "ios device";
-      console.log(this.debugMsg);
+//      console.log(this.debugMsg);
 
       this.deploy.check().then((snapshotAvailable: boolean) => {
         if (snapshotAvailable) {
           // When snapshotAvailable is true, you can apply the snapshot
 
           this.debugMsg = "SNAPSHOT AVAIABLE!";
-          console.log(this.debugMsg);
+  //        console.log(this.debugMsg);
 
           this.deploy.download().then(() => {
             this.debugMsg = "Downloaded :)";
-            console.log(this.debugMsg);
+//            console.log(this.debugMsg);
             return this.deploy.extract();
           });
         }
@@ -38,7 +38,7 @@ export class HelloIonicPage {
 
     }else{
       this.debugMsg = "Not iOS";
-      console.log(this.debugMsg);
+//      console.log(this.debugMsg);
     }
 
   }
