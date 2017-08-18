@@ -28,11 +28,17 @@ export class HelloIonicPage {
           this.debugMsg = "SNAPSHOT AVAIABLE!";
   //        console.log(this.debugMsg);
 
+          /*
+
           this.deploy.download().then(() => {
             this.debugMsg = "Downloaded :)";
 //            console.log(this.debugMsg);
             return this.deploy.extract();
           });
+          */
+
+        }else{
+          this.debugMsg = "No SNAPSHOT Update...";
         }
       });
 
