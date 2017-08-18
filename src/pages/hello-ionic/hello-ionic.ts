@@ -13,7 +13,11 @@ export class HelloIonicPage {
     this.deploy.check().then((snapshotAvailable: boolean) => {
       if (snapshotAvailable) {
         // When snapshotAvailable is true, you can apply the snapshot
+
+        console.log("SNAPSHOT AVAIABLE!");
+
         this.deploy.download().then(() => {
+          console.log("Downloaded :)");
           return this.deploy.extract();
         });
       }
