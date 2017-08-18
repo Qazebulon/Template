@@ -18,6 +18,8 @@ export class HelloIonicPage {
     console.log(this.debugMsg);
 
     if(this.platform.is('ios')){
+      this.debugMsg = "ios device";
+      console.log(this.debugMsg);
 
       this.deploy.check().then((snapshotAvailable: boolean) => {
         if (snapshotAvailable) {
