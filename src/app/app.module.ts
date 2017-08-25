@@ -10,7 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { CloudSettings, CloudModule, Deploy } from '@ionic/cloud-angular';
 
 /**/
 const cloudSettings: CloudSettings = {
@@ -45,4 +45,27 @@ const cloudSettings: CloudSettings = {
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public deploy: Deploy){
+    //...
+    console.log("deploy constructor");
+
+    this.deploy.check().then((snapshotAvailable: boolean) => {
+      console.log("deploy check");
+      if (snapshotAvailable) {
+        // When snapshotAvailable is true, you can apply the snapshot
+        console.log("Snapshot available!!!");
+        /*
+         this.deploy.download().then(() => {
+         this.debugMsg = "Downloaded :)";
+         //            console.log(this.debugMsg);
+         return this.deploy.extract();
+         });
+         */
+      }else{
+        console.log("No new snapshot");
+      }
+    });
+
+  }
+}
