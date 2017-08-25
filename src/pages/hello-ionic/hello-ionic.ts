@@ -25,6 +25,14 @@ export class HelloIonicPage {
 
       this.debugMsg += " -/- " + deploy;
 
+      this.deploy.check().then(function() {
+        // checked
+        this.debugMsg += " -\- Checked";
+      }, function() {
+        // failed
+        this.debugMsg += " -\- Failed";
+      });
+
       this.deploy.check().then((snapshotAvailable: boolean) => {
         this.debugMsg += " - deploy check";
 
