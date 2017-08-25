@@ -43,7 +43,7 @@ export class MyApp {
 
 
       //Cloud Test
-      if(this.platform.is('ios')) {
+//      if(this.platform.is('ios')) {
         this.deploy.channel = 'dev';
         this.deploy.check().then((snapshotAvailable: boolean) => {
           if (snapshotAvailable) {
@@ -54,7 +54,7 @@ export class MyApp {
             });
           }
         });
-      }
+//      }
 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
