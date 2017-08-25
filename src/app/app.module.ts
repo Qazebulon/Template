@@ -50,7 +50,8 @@ export class AppModule {
     //...
     console.log("deploy constructor");
 
-    this.deploy.check().then((snapshotAvailable: boolean) => {
+    /*
+      this.deploy.check().then((snapshotAvailable: boolean) => {
       console.log("deploy check");
       if (snapshotAvailable) {
         // When snapshotAvailable is true, you can apply the snapshot
@@ -61,11 +62,11 @@ export class AppModule {
          //            console.log(this.debugMsg);
          return this.deploy.extract();
          });
-         */
+         * /
       }else{
         console.log("No new snapshot");
       }
     });
-
+    */
   }
 }
