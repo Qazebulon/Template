@@ -22,6 +22,8 @@ export class HelloIonicPage {
 //      console.log(this.debugMsg);
 
       this.deploy.check().then((snapshotAvailable: boolean) => {
+        this.debugMsg += " - deploy check";
+
         if (snapshotAvailable) {
           // When snapshotAvailable is true, you can apply the snapshot
 
