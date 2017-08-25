@@ -69,6 +69,12 @@ export class HelloIonicPage {
     if(this.platform.is('ios')){
       this.debugMsg += " - ios device";
 
+
+      this.deploy.getSnapshots().then((snapshots) => {
+        // snapshots will be an array of snapshot uuids
+        this.debugMsg += " - SNAPSHOTS: " + snapshots;
+      });
+
       this.deploy.check().then((snapshotAvailable: boolean) => {
         if (snapshotAvailable) {
           // When snapshotAvailable is true, you can apply the snapshot
