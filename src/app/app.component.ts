@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import {Deploy} from '@ionic/cloud-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,8 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public deploy: Deploy
   ) {
     this.initializeApp();
 
@@ -38,6 +40,22 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
+
+      //Cloud Test
+      if(this.platform.is('ios')) {
+        this.deploy.channel = 'dev';
+        this.deploy.check().then((snapshotAvailable: boolean) => {
+          if (snapshotAvailable) {
+            this.deploy.download().then(() => {
+              this.deploy.extract().then(() => {
+                this.deploy.load();
+              });
+            });
+          }
+        });
+      }
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

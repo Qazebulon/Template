@@ -16,10 +16,14 @@ export class HelloIonicPage {
   constructor(public deploy: Deploy, public platform: Platform) {
     this.debugMsg += " - Constructor: starting point.";
 //    console.log(this.debugMsg);
+    
+    this.deploy.channel = 'dev';
 
     if(this.platform.is('ios')){
       this.debugMsg += " - ios device";
 //      console.log(this.debugMsg);
+
+      this.deploy.channel = 'dev';
 
       this.deploy.check().then((snapshotAvailable: boolean) => {
         this.debugMsg += " - deploy check";
