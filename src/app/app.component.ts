@@ -51,6 +51,7 @@ export class MyApp {
         this.deploy.channel = 'dev';
         this.deploy.check().then((snapshotAvailable: boolean) => {
           if (snapshotAvailable) {
+            console.log("TEST: available");
 
             //Show alert
             let alert = this.alertCtrl.create({
@@ -61,8 +62,13 @@ export class MyApp {
             alert.present();
 
             this.deploy.download().then(() => {
+              console.log("TEST: downloaded");
+
               this.deploy.extract().then(() => {
+                console.log("TEST: extracted");
+
                 this.deploy.load();
+                console.log("TEST: loaded");
               });
             });
           }
