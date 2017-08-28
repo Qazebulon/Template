@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
+import {LiveUpdatedContent} from '../pages/live-updated-content/live-updated-content';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
@@ -24,6 +25,7 @@ const cloudSettings: CloudSettings = {
   declarations: [
     MyApp,
     HelloIonicPage,
+    LiveUpdatedContent,
     ItemDetailsPage,
     ListPage
   ],
@@ -36,6 +38,7 @@ const cloudSettings: CloudSettings = {
   entryComponents: [
     MyApp,
     HelloIonicPage,
+    LiveUpdatedContent,
     ItemDetailsPage,
     ListPage
   ],

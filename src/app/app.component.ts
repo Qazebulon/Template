@@ -1,14 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav, AlertController } from 'ionic-angular';
+
+import {Deploy} from '@ionic/cloud-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {LiveUpdatedContent} from "../pages/live-updated-content/live-updated-content";
 
-import {Deploy} from '@ionic/cloud-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,14 +27,16 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
+    public alertCtrl: AlertController,
     public deploy: Deploy
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Ionic Live Update Template', component: HelloIonicPage },
+      { title: 'My First List', component: ListPage },
+      { title: 'Live Update Content', component: LiveUpdatedContent }
     ];
   }
 
@@ -47,6 +51,15 @@ export class MyApp {
         this.deploy.channel = 'dev';
         this.deploy.check().then((snapshotAvailable: boolean) => {
           if (snapshotAvailable) {
+
+            //Show alert
+            let alert = this.alertCtrl.create({
+              title: 'New Content Available!',
+              subTitle: 'An update to the app has been found and will now download.',
+              buttons: ['OK']
+            });
+            alert.present();
+
             this.deploy.download().then(() => {
               this.deploy.extract().then(() => {
                 this.deploy.load();
