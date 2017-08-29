@@ -128,6 +128,14 @@ export class MyApp {
         this.splashScreen.show();
         this.nav.setRoot(DownloadingSplashScreen);
 
+        //Show alert 1.2
+        let alert12 = this.alertCtrl.create({
+          title: 'New Content Available2!',
+          subTitle: 'An update to the app has been found and will now download.',
+          buttons: ['OK2']
+        });
+        alert12.present();
+
 
         this.deploy.download().then(() => {
           console.log("TEST: downloaded");
