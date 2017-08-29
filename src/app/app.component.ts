@@ -123,6 +123,7 @@ export class MyApp {
           buttons: ['OK']
         });
         alert.present();
+        this.splashScreen.show();
 
         this.deploy.download().then(() => {
           console.log("TEST: downloaded");
