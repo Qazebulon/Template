@@ -8,8 +8,8 @@ import {Deploy} from '@ionic/cloud-angular';
 //PAGE IMPORTS
 
 @Component({
-  selector: 'component-live-update',
-  templateUrl: 'live-update.html'
+//  selector: 'component-live-update',
+//  templateUrl: 'live-update.html'
 })
 
 export class LiveUpdateComponent {
