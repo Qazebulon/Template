@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CloudSettings, CloudModule, Deploy } from '@ionic/cloud-angular';
+import {LiveUpdateComponent} from '../components/live-update/live-update'
 
 /**/
 const cloudSettings: CloudSettings = {
@@ -27,7 +28,8 @@ const cloudSettings: CloudSettings = {
     HelloIonicPage,
     LiveUpdatedContent,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    LiveUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ const cloudSettings: CloudSettings = {
     HelloIonicPage,
     LiveUpdatedContent,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    LiveUpdateComponent
   ],
   providers: [
     StatusBar,
@@ -49,27 +52,5 @@ const cloudSettings: CloudSettings = {
   ]
 })
 export class AppModule {
-  constructor(public deploy: Deploy){
-    //...
-    console.log("deploy constructor");
-
-    /*
-      this.deploy.check().then((snapshotAvailable: boolean) => {
-      console.log("deploy check");
-      if (snapshotAvailable) {
-        // When snapshotAvailable is true, you can apply the snapshot
-        console.log("Snapshot available!!!");
-        /*
-         this.deploy.download().then(() => {
-         this.debugMsg = "Downloaded :)";
-         //            console.log(this.debugMsg);
-         return this.deploy.extract();
-         });
-         * /
-      }else{
-        console.log("No new snapshot");
-      }
-    });
-    */
-  }
+  constructor(){}
 }
