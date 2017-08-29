@@ -111,9 +111,6 @@ export class MyApp {
   }
 
   checkForUpdate(){
-
-    //Cloud Test
-//      if(this.platform.is('ios')) {
     this.deploy.channel = 'dev';
     this.deploy.check().then((snapshotAvailable: boolean) => {
       if (snapshotAvailable) {
