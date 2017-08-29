@@ -7,6 +7,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import {LiveUpdatedContent} from '../pages/live-updated-content/live-updated-content';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
+import {DownloadingSplashScreen} from '../pages/downloading-splash-screen/downloading-splash-screen';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ const cloudSettings: CloudSettings = {
     HelloIonicPage,
     LiveUpdatedContent,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    DownloadingSplashScreen
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ const cloudSettings: CloudSettings = {
     HelloIonicPage,
     LiveUpdatedContent,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    DownloadingSplashScreen
   ],
   providers: [
     StatusBar,

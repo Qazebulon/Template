@@ -10,6 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LiveUpdatedContent} from "../pages/live-updated-content/live-updated-content";
+import {DownloadingSplashScreen} from '../pages/downloading-splash-screen/downloading-splash-screen';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,7 +37,8 @@ export class MyApp {
     this.pages = [
       { title: 'Ionic Live Update Template', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
-      { title: 'Live Update Content', component: LiveUpdatedContent }
+      { title: 'Live Update Content', component: LiveUpdatedContent },
+      { title: 'Live Update Content', component: DownloadingSplashScreen }
     ];
   }
 
@@ -124,6 +126,8 @@ export class MyApp {
         });
         alert.present();
         this.splashScreen.show();
+        this.nav.setRoot(DownloadingSplashScreen);
+
 
         this.deploy.download().then(() => {
           console.log("TEST: downloaded");
