@@ -12,7 +12,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CloudSettings, CloudModule, Deploy } from '@ionic/cloud-angular';
-import {LiveUpdateComponent} from '../components/live-update/live-update'
 
 /**/
 const cloudSettings: CloudSettings = {
@@ -28,8 +27,7 @@ const cloudSettings: CloudSettings = {
     HelloIonicPage,
     LiveUpdatedContent,
     ItemDetailsPage,
-    ListPage,
-    LiveUpdateComponent
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -42,8 +40,7 @@ const cloudSettings: CloudSettings = {
     HelloIonicPage,
     LiveUpdatedContent,
     ItemDetailsPage,
-    ListPage,
-    LiveUpdateComponent
+    ListPage
   ],
   providers: [
     StatusBar,
