@@ -161,6 +161,14 @@ export class MyApp {
           });
         });
       }else{
+        //Show alert 2
+        let alert5 = this.alertCtrl.create({
+          title: 'No update',
+          subTitle: '...',
+          buttons: ['OK']
+        });
+        alert5.present();
+
         //No update... continue as usual
         this.splashScreen.hide();
       }
