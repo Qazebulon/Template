@@ -106,7 +106,7 @@ export class MyApp {
       /**/
 
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+//      this.splashScreen.hide();
     });
   }
 
@@ -160,6 +160,9 @@ export class MyApp {
 
           });
         });
+      }else{
+        //No update... continue as usual
+        this.splashScreen.hide();
       }
     });
   }
