@@ -125,54 +125,16 @@ export class MyApp {
           buttons: ['OK']
         });
         alert.present();
-        this.splashScreen.show();
-//        this.nav.setRoot(DownloadingSplashScreen);
-
-        //Show alert 1.2
-        let alert12 = this.alertCtrl.create({
-          title: 'New Content Available2!',
-          subTitle: 'An update to the app has been found and will now download.',
-          buttons: ['OK2C']
-        });
-        alert12.present();
-
+        this.splashScreen.show();                   //Does not appear to work as expected for test case.
+        this.nav.setRoot(DownloadingSplashScreen);
 
         this.deploy.download().then(() => {
-          console.log("TEST: downloaded");
-
-          //Show alert 2
-          let alert2 = this.alertCtrl.create({
-            title: 'New Content Downloaded!',
-            subTitle: '...',
-            buttons: ['OK']
-          });
-          alert2.present();
-
           this.deploy.extract().then(() => {
-            console.log("TEST: extracted");
-
-            //Show alert 3
-            let alert3 = this.alertCtrl.create({
-              title: 'New Content Extracted!',
-              subTitle: '...',
-              buttons: ['OK']
-            });
-            alert3.present();
-
             this.deploy.load();
-            console.log("TEST: loaded");
-
-            //Show alert 4
-            let alert4 = this.alertCtrl.create({
-              title: 'New Content Loaded!',
-              subTitle: '...',
-              buttons: ['OK']
-            });
-            alert4.present();
-
           });
         });
       }else{
+        /** /
         //Show alert 2
         let alert5 = this.alertCtrl.create({
           title: 'No update',
@@ -180,7 +142,7 @@ export class MyApp {
           buttons: ['OK']
         });
         alert5.present();
-
+        /**/
         //No update... continue as usual
         this.splashScreen.hide();
       }
